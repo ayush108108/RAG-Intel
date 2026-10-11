@@ -17,6 +17,26 @@ RAG-Intel turns files into inspectable retrieval results using bounded chunking,
 
 This repository is a library-shaped extract of retrieval-engineering primitives from a larger private document-intelligence system. It intentionally contains no private benchmarks, production configuration, HTTP APIs, product UI, or deployment material; see [`docs/PUBLIC_BOUNDARY.md`](docs/PUBLIC_BOUNDARY.md) and [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
+## Demo
+
+Every number in the video is output of the bundled sample data or a paper simulation on synthetic data, not a result or a performance claim.
+
+[![Watch the RAG-Intel demo](docs/demo/poster.png)](docs/demo/demo.mp4)
+
+The recording shows an explicit lexical policy, bundled Markdown ingestion, matching chunk evidence, SQLite index status, offline evaluation, and test output.
+
+Reproduce the recorded lexical workflow after the [quickstart setup](#five-minute-tour):
+
+```bash
+cp config/community.lexical.toml rag-intel.toml
+cat rag-intel.toml
+uv run rag-intel ingest sample_data/sample.md --config rag-intel.toml
+uv run rag-intel search "BM25 lexical matching" --config rag-intel.toml | cut -c 1-108
+uv run rag-intel status --config rag-intel.toml
+uv run python examples/eval_quickstart.py
+uv run pytest -o addopts= -q
+```
+
 ## Why it feels different
 
 - **Policy is code:** fusion, aggregation, candidate depth, and result limits are selected explicitly.
