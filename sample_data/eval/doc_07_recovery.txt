@@ -1,0 +1,4 @@
+Recovery logic runs on restart. Jobs that were queued with a
+recoverable source file are eligible for requeue with their metadata.
+Jobs that were processing are marked failed as orphaned on restart
+rather than pretending they completed.

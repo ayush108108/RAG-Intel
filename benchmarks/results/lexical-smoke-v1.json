@@ -1,0 +1,134 @@
+{
+  "benchmark": "rag-intel-lexical-smoke-v1",
+  "configuration": {
+    "aggregation": "MaxScoreAggregator",
+    "candidate_depth": 40,
+    "chunk_overlap": 64,
+    "chunk_size": 640,
+    "fusion": "ReciprocalRankFusion",
+    "k": 3,
+    "retrieval_mode": "lexical",
+    "runs": 30,
+    "selection": "TopKSelector",
+    "warmup_runs": 3
+  },
+  "corpus": {
+    "chunks": 4,
+    "documents": 4,
+    "ingest_ms": 119.584
+  },
+  "generated_at_utc": "2026-08-23T13:21:22.823124+00:00",
+  "quality": {
+    "ndcg@3": 1.0,
+    "precision@3": 0.333333,
+    "recall@3": 1.0,
+    "reciprocal_rank": 1.0
+  },
+  "queries": [
+    {
+      "latency_ms": {
+        "max": 0.661,
+        "median": 0.564,
+        "min": 0.524
+      },
+      "metrics": {
+        "ndcg@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "query": "BM25 inverse document frequency",
+      "query_id": "bm25-idf",
+      "ranked_ids": [
+        "markdown-retrieval",
+        "plain-text-ingestion",
+        "project-features"
+      ],
+      "relevant_ids": [
+        "markdown-retrieval"
+      ]
+    },
+    {
+      "latency_ms": {
+        "max": 0.813,
+        "median": 0.567,
+        "min": 0.517
+      },
+      "metrics": {
+        "ndcg@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "query": "Alice Smith Principal Engineer AI Retrieval",
+      "query_id": "principal-engineer",
+      "ranked_ids": [
+        "team-directory",
+        "project-features"
+      ],
+      "relevant_ids": [
+        "team-directory"
+      ]
+    },
+    {
+      "latency_ms": {
+        "max": 1.709,
+        "median": 0.592,
+        "min": 0.484
+      },
+      "metrics": {
+        "ndcg@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "query": "Supports PDF HTML JSON CSV Image formats",
+      "query_id": "format-support",
+      "ranked_ids": [
+        "project-features"
+      ],
+      "relevant_ids": [
+        "project-features"
+      ]
+    },
+    {
+      "latency_ms": {
+        "max": 0.944,
+        "median": 0.586,
+        "min": 0.532
+      },
+      "metrics": {
+        "ndcg@3": 1.0,
+        "precision@3": 0.3333333333333333,
+        "recall@3": 1.0,
+        "reciprocal_rank": 1.0
+      },
+      "query": "basic English sentences verify text format ingestion",
+      "query_id": "plain-english",
+      "ranked_ids": [
+        "plain-text-ingestion",
+        "project-features",
+        "markdown-retrieval"
+      ],
+      "relevant_ids": [
+        "plain-text-ingestion"
+      ]
+    }
+  ],
+  "query_latency_ms": {
+    "max": 1.709,
+    "min": 0.484,
+    "p50": 0.567,
+    "p95": 0.781,
+    "samples": 120
+  },
+  "schema_version": 1,
+  "software": {
+    "python": "3.12.1",
+    "rag_intel": "0.1.0"
+  },
+  "system": {
+    "implementation": "cpython",
+    "platform": "Linux-6.8.0-1052-azure-x86_64-with-glibc2.39"
+  }
+}

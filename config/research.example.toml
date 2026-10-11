@@ -1,0 +1,27 @@
+# Illustrative public configuration only.
+# Every policy choice is explicit. These are not private deployment defaults
+# and are not presented as optimal for any corpus.
+
+[storage]
+data_dir = "./.rag-intel/community-hybrid"
+
+[chunking]
+size = 640
+overlap = 64
+
+[ingestion]
+max_size_mb = 25
+
+[retrieval]
+mode = "hybrid"
+fusion = "rrf"
+rrf_rank_constant = 60
+aggregation = "max"
+candidate_depth = 40
+result_limit = 8
+rerank = false
+
+[models]
+embedding = "all-MiniLM-L6-v2"
+embedding_batch_size = 16
+reranker = ""

@@ -1,0 +1,43 @@
+{
+  "name": "rag-intel-lexical-smoke-v1",
+  "documents": [
+    {
+      "doc_id": "markdown-retrieval",
+      "path": "../sample_data/sample.md"
+    },
+    {
+      "doc_id": "team-directory",
+      "path": "../sample_data/sample.csv"
+    },
+    {
+      "doc_id": "project-features",
+      "path": "../sample_data/sample.json"
+    },
+    {
+      "doc_id": "plain-text-ingestion",
+      "path": "../sample_data/sample.txt"
+    }
+  ],
+  "queries": [
+    {
+      "query_id": "bm25-idf",
+      "text": "BM25 inverse document frequency",
+      "relevant_ids": ["markdown-retrieval"]
+    },
+    {
+      "query_id": "principal-engineer",
+      "text": "Alice Smith Principal Engineer AI Retrieval",
+      "relevant_ids": ["team-directory"]
+    },
+    {
+      "query_id": "format-support",
+      "text": "Supports PDF HTML JSON CSV Image formats",
+      "relevant_ids": ["project-features"]
+    },
+    {
+      "query_id": "plain-english",
+      "text": "basic English sentences verify text format ingestion",
+      "relevant_ids": ["plain-text-ingestion"]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+BM25 is a lexical retrieval method that scores documents by keyword
+matches. It uses term frequency saturation and inverse document
+frequency, and applies document length normalization. Candidates with
+zero overlap with the query are omitted.

@@ -1,0 +1,10 @@
+{
+  "project": "RAG-Intel OS",
+  "version": "0.1.0",
+  "description": "Retrieval engineering showing multi-format ingestion, chunking, and lexical search.",
+  "features": [
+    "Durable metadata storage via SQLite",
+    "Lexical indexing and BM25 search scoring",
+    "Supports PDF, HTML, JSON, CSV, Image, TXT, and MD formats"
+  ]
+}

@@ -1,0 +1,4 @@
+Hybrid fusion combines dense vector scores and sparse BM25 scores.
+Each score family is normalized independently, then caller-supplied
+weights control the mixture. All-zero inputs normalize to zero so
+absent signal is not converted into full signal.

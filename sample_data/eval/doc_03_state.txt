@@ -1,0 +1,3 @@
+A SQLite metadata store tracks each document through the ingestion
+queue. Status values include queued, processing, completed, and
+failed. Caller metadata is preserved across persistence and restart.

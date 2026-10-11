@@ -1,0 +1,75 @@
+name: CI Workflow
+
+on:
+  push:
+    branches: [main, "public/**"]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          version: "0.11.28"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --extra dev --frozen
+
+      - name: Run Ruff Lint
+        run: uv run ruff check src tests examples
+
+      - name: Run Pytest
+        run: uv run pytest -q
+
+      - name: Run Pytest with coverage
+        run: uv run --with pytest-cov pytest -q --cov=src/rag_intel --cov-report=term-missing
+
+      - name: Run offline evaluation example
+        run: uv run python examples/eval_quickstart.py
+
+      - name: Reproduce lexical benchmark
+        run: |
+          uv run rag-intel benchmark benchmarks/lexical-smoke-v1.json \
+            --config config/benchmark.lexical.toml \
+            --k 3 --runs 2 --warmup-runs 1 \
+            --output /tmp/rag-intel-benchmark.json > /dev/null
+
+      - name: Build and smoke test
+        run: |
+          uv run python -m compileall -q src
+          uv build
+          uv run rag-intel version
+
+  full-extras:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          version: "0.11.28"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install all adapters
+        run: uv sync --all-extras --frozen
+      - name: Verify full installation
+        run: |
+          uv run pytest -q
+          uv run python -c "import faiss; import sentence_transformers; import rag_intel"

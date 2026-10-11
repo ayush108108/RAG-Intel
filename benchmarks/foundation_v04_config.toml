@@ -1,0 +1,23 @@
+[storage]
+data_dir = "./.rag-intel/foundation-v04"
+
+[chunking]
+size = 600
+overlap = 100
+
+[ingestion]
+max_size_mb = 50
+
+[retrieval]
+mode = "hybrid"
+fusion = "rrf"
+rrf_rank_constant = 60
+aggregation = "max"
+candidate_depth = 100
+result_limit = 100
+rerank = true
+
+[models]
+embedding = "BAAI/bge-base-en-v1.5"
+embedding_batch_size = 32
+reranker = "cross-encoder/ms-marco-MiniLM-L-6-v2"

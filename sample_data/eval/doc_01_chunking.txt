@@ -1,0 +1,4 @@
+Chunking splits a long document into bounded pieces before indexing.
+The overlap is counted inside the requested chunk size, so the total
+payload never exceeds the configured budget. Overlap boundaries are
+aligned to word edges so words are not cut in half.

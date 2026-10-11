@@ -1,0 +1,5 @@
+RAG-Intel Plain Text Test Document
+
+This is a simple text file used to verify text format ingestion.
+It contains basic English sentences that the BM25 lexical search retriever can parse and index.
+Feel free to ingest and search for keywords like 'English', 'sentences', or 'verify'.

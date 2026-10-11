@@ -1,0 +1,4 @@
+The FAISS wrapper persists an ID-mapped flat vector index to disk.
+Metadata records vector count, dimension, and the embedding model
+identity. Reload validates compatibility before accepting the index,
+and writes go through temporary files followed by an atomic replace.

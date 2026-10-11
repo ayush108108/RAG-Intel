@@ -1,0 +1,5 @@
+Ingestion routes files by extension into a supported parser.
+Supported formats include PDF, HTML, JSON, CSV, plain text,
+Markdown, and images through OCR. Missing optional parser
+dependencies raise an explicit error instead of silently indexing
+an empty document.

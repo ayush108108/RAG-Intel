@@ -1,0 +1,12 @@
+{
+  "queries": {
+    "how does chunk overlap stay inside the size budget": ["doc_01_chunking"],
+    "how does bm25 score keyword matches": ["doc_02_bm25"],
+    "what happens to processing jobs after a restart": ["doc_07_recovery"],
+    "how are dense and sparse scores combined": ["doc_06_fusion"],
+    "how is the vector index persisted to disk": ["doc_04_vector_store"],
+    "how does reranking fix the result ordering": ["doc_05_reranking"],
+    "which file formats can be ingested": ["doc_08_ingestion"],
+    "where is document queue state stored": ["doc_03_state"]
+  }
+}

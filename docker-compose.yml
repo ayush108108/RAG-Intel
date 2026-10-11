@@ -1,0 +1,23 @@
+services:
+  rag-intel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      network: host
+    container_name: rag_intel
+    image: rag-intel:latest
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    command: ["--help"]
+    environment:
+      - UV_COMPILE_BYTECODE=1
+      - UV_LINK_MODE=copy
+    volumes:
+      - ./.rag-intel:/app/.rag-intel
+      - ./sample_data:/app/sample_data
+      - uv-cache:/root/.cache/uv
+
+volumes:
+  uv-cache:
+    name: rag_intel_uv_cache

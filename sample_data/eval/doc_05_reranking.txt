@@ -1,0 +1,3 @@
+A cross-encoder reranker re-scores the top candidates from hybrid
+retrieval before they are passed to a language model. Reranking fixes
+the final ordering so the most relevant passage is ranked first.

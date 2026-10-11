@@ -1,0 +1,88 @@
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rag-intel"
+version = "0.1.0"
+description = "Transparent local retrieval with explicit, pluggable ranking policy"
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "MIT"}
+authors = [{name = "Ayush Verma", email = "ayush@correlatex.com"}]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+  "numpy>=2.0,<3",
+  "typer>=0.9.0",
+]
+
+[project.scripts]
+rag-intel = "rag_intel.main:app"
+
+[project.urls]
+Homepage = "https://github.com/ayush108108/RAG-Intel"
+Repository = "https://github.com/ayush108108/RAG-Intel"
+Issues = "https://github.com/ayush108108/RAG-Intel/issues"
+Documentation = "https://github.com/ayush108108/RAG-Intel/blob/main/README.md"
+
+[project.optional-dependencies]
+vector = [
+  "faiss-cpu>=1.8,<2",
+]
+parsers = [
+  "beautifulsoup4>=4.12,<5",
+  "pymupdf>=1.24,<2",
+  "pillow>=10,<13",
+  "pytesseract>=0.3,<1",
+]
+semantic = [
+  "sentence-transformers>=3.0,<7",
+]
+reranking = [
+  "sentence-transformers>=3.0,<7",
+]
+dev = [
+  "pip-audit>=2.10,<3",
+  "pytest>=9.0.3,<10",
+  "pytest-asyncio>=1.2,<2",
+  "ruff>=0.16,<1",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_intel"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --strict-markers"
+testpaths = ["tests"]
+pythonpath = ["src"]
+markers = [
+    "integration: local infrastructure tests",
+    "llm: slow actual or mocked model endpoints",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.uv]
+index-strategy = "unsafe-best-match"
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }

@@ -1,0 +1,35 @@
+name: Foundation v0.4 RAG qualification
+
+on:
+  workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - "benchmarks/foundation_v04.py"
+      - "benchmarks/foundation_v04_config.toml"
+      - "src/**"
+
+permissions:
+  contents: read
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install full retrieval stack
+        run: uv sync --all-extras --frozen
+      - name: Run BEIR NFCorpus qualification subset
+        run: |
+          uv run python benchmarks/foundation_v04.py             --query-limit 50             --corpus-limit 1200             --output benchmarks/results/foundation-v04-rag-intel.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rag-intel-foundation-v04
+          path: benchmarks/results/foundation-v04-rag-intel.json

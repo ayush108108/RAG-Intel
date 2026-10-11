@@ -1,0 +1,25 @@
+# Configuration used to reproduce benchmarks/results/lexical-smoke-v1.json.
+
+[storage]
+data_dir = "./.rag-intel/benchmark-lexical-v1"
+
+[chunking]
+size = 640
+overlap = 64
+
+[ingestion]
+max_size_mb = 25
+
+[retrieval]
+mode = "lexical"
+fusion = "rrf"
+rrf_rank_constant = 60
+aggregation = "max"
+candidate_depth = 40
+result_limit = 8
+rerank = false
+
+[models]
+embedding = ""
+embedding_batch_size = 16
+reranker = ""
