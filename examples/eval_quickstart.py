@@ -92,9 +92,9 @@ def main() -> None:
                 ranked_docs.append(doc_id)
 
         metrics = evaluate_ranking(set(relevant_docs), ranked_docs, k=TOP_K)
-        metrics["precision@1"] = evaluate_ranking(
-            set(relevant_docs), ranked_docs, k=1
-        )["precision@1"]
+        metrics["precision@1"] = evaluate_ranking(set(relevant_docs), ranked_docs, k=1)[
+            "precision@1"
+        ]
         rows.append(metrics)
         print(
             f"{query:<52}"
@@ -103,10 +103,7 @@ def main() -> None:
             f" {metrics[f'recall@{TOP_K}']:>6.3f}"
             f" {metrics['reciprocal_rank']:>6.3f}"
         )
-    means = {
-        key: sum(row[key] for row in rows) / len(rows)
-        for key in rows[0]
-    }
+    means = {key: sum(row[key] for row in rows) / len(rows) for key in rows[0]}
     print("-" * 80)
     print(
         f"{'mean':<52}"

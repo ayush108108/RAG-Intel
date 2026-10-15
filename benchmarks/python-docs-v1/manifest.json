@@ -1,0 +1,94 @@
+{
+  "id": "python-docs-v1",
+  "source_commit": "0b05ead877f909b7efe712db758012d9dbece7ce",
+  "source_release": "CPython v3.12.7",
+  "licence_url": "https://docs.python.org/3.12/license.html",
+  "documents": [
+    {
+      "id": "datastructures",
+      "path": "corpus/datastructures.txt",
+      "sha256": "4c497eddc498ae04c9735a71725a6c0af647d3b35f5ec6accf2e3c349ccf242e",
+      "source_url": "https://raw.githubusercontent.com/python/cpython/0b05ead877f909b7efe712db758012d9dbece7ce/Doc/tutorial/datastructures.rst",
+      "licence": "PSF-2.0",
+      "copyright": "Copyright (c) 2001-2024 Python Software Foundation; All Rights Reserved",
+      "modifications": "Removed two sectionauthor directives containing a contributor name/email; otherwise unchanged."
+    },
+    {
+      "id": "modules",
+      "path": "corpus/modules.txt",
+      "sha256": "b391a3d94b7dd61785cb7749ba36837735404693eed3172248f5be2101eda16b",
+      "source_url": "https://raw.githubusercontent.com/python/cpython/0b05ead877f909b7efe712db758012d9dbece7ce/Doc/tutorial/modules.rst",
+      "licence": "PSF-2.0",
+      "copyright": "Copyright (c) 2001-2024 Python Software Foundation; All Rights Reserved",
+      "modifications": "Unchanged source bytes; filename extension only."
+    },
+    {
+      "id": "inputoutput",
+      "path": "corpus/inputoutput.txt",
+      "sha256": "13e550fdc65948d88196eda0985221df240a1dce40dc456e858ef3a55611a606",
+      "source_url": "https://raw.githubusercontent.com/python/cpython/0b05ead877f909b7efe712db758012d9dbece7ce/Doc/tutorial/inputoutput.rst",
+      "licence": "PSF-2.0",
+      "copyright": "Copyright (c) 2001-2024 Python Software Foundation; All Rights Reserved",
+      "modifications": "Unchanged source bytes; filename extension only."
+    },
+    {
+      "id": "errors",
+      "path": "corpus/errors.txt",
+      "sha256": "f505e602d08bd1d3141beea26f2ce46aee0d1c8e2170b387329f6ebc5c6b3b84",
+      "source_url": "https://raw.githubusercontent.com/python/cpython/0b05ead877f909b7efe712db758012d9dbece7ce/Doc/tutorial/errors.rst",
+      "licence": "PSF-2.0",
+      "copyright": "Copyright (c) 2001-2024 Python Software Foundation; All Rights Reserved",
+      "modifications": "Unchanged source bytes; filename extension only."
+    }
+  ],
+  "seed": 0,
+  "embedding_model": null,
+  "generation": false,
+  "baseline": {
+    "chunk_size": 640,
+    "chunk_overlap": 64,
+    "query_stopwords": []
+  },
+  "repaired": {
+    "chunk_size": 640,
+    "chunk_overlap": 64,
+    "query_stopwords": [
+      "a",
+      "an",
+      "and",
+      "are",
+      "as",
+      "at",
+      "be",
+      "by",
+      "can",
+      "do",
+      "does",
+      "for",
+      "from",
+      "how",
+      "i",
+      "in",
+      "is",
+      "it",
+      "of",
+      "on",
+      "or",
+      "that",
+      "the",
+      "their",
+      "then",
+      "this",
+      "to",
+      "was",
+      "what",
+      "when",
+      "where",
+      "which",
+      "why",
+      "will",
+      "with",
+      "you"
+    ]
+  }
+}

@@ -1,0 +1,3 @@
+# Preserve the downloaded source bytes used by the corpus SHA256 manifest.
+benchmarks/python-docs-v1/corpus/* -text
+benchmarks/python-docs-v1/LICENSE-PYTHON.txt -text
